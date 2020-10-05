@@ -1,11 +1,14 @@
 //and all hell goes loose
 
+//get them at html
 let inicio = document.getElementById('trigger');
+let pintado = document.getElementById('showMe');
+
 inicio.addEventListener('click', allHellLoose);
 
 
 function allHellLoose() {
-/* //consola hello world
+//consola hello world
 console.log('Hello Mundo');
 
 //own name
@@ -51,10 +54,10 @@ function notaCorte() {
     console.log(info);
     return info;
 }
-notaCorte(); */
+notaCorte();
 
 //cotxes
-/* function changeWords(str){
+function changeWords(str){
 
     let sentence  = "Tinc un cotxe de color blau";
 
@@ -73,9 +76,9 @@ notaCorte(); */
     console.log(changedOne);
 
 }
-changeWords('verd'); */
+changeWords('verd');
 
-/* //for loop
+//for loop
 function mobles() {
 
     let objectes = [ 'taula', 'cadira', 'ordinador', 'libreta'];
@@ -87,64 +90,75 @@ function mobles() {
         console.log(`L'objecte ${objectes[i]} està en la posició ${[i+1]}`)
     }
 }
-mobles(); */
+mobles();
 
 //calculadora
-const myCalcul = () => {
+const myCalcul = (str, num1, num2) => {
 
-    //get the numbers
-    let num1 = parseInt(prompt('Type any number!'));
+
+    num1 = parseInt(prompt('Insert one number pls'));
     //control1
     (isNaN(num1)) ? num1 = 0 : true;
 
-    let num2 = parseInt(prompt('Type any other number or the same!'));
+    num2 = parseInt(prompt('Insert a second number pls'));
     //control2
     (isNaN(num2)) ? num2 = 0 : true;
 
-    //question raises
-    let choices = parseInt(prompt("What math operation would you like to do \n 'Adding' type 1 \n 'Substract' type 2\n 'Product' type 3 \n 'Division' type 4"))
-    console.log(choices);
+    str = prompt('Que operación deseas hacer?\n Suma \n Resta \n Multiplicacion \n División')
+    //control str
+    str = str.toLowerCase();
+    //accents out
+    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+
 
     let result = 0;
     let tellYou;
 
-    switch (choices) {
-        case 1:
+    switch (str) {
+        case (str = "suma"):
             result = num1 + num2;
 
-            tellYou = alert(`The result of your operation is ${result}. Thank you.`)
+            tellYou = (`The result of your ${str} is ${result}. Thank you.`)
             
             break;
     
-        case 2:
+        case (str = "resta"):
             result = num1 - num2;
 
-            tellYou = alert(`The result of your operation is ${result}. Thank you.`)
+            tellYou = (`The result of your ${str} is ${result}. Thank you.`)
 
             break;
     
-        case 3:
+        case (str = "multiplicacion"):
             result = num1 * num2;
 
-            tellYou = alert(`The result of your operation is ${result}. Thank you.`)
+            tellYou = (`The result of your ${str} is ${result}. Thank you.`)
 
             break;
     
-        case 4:
+        case (str = "division"):
             result = num1 / num2;
 
-            tellYou = alert(`The result of your operation is ${result}. Thank you.`)
+            tellYou = (`The result of your ${str} is ${result}. Thank you.`)
 
             break;
     
         default:
 
-            tellYou = alert("Something is wrong you fool!");
+            tellYou = ("Something is wrong you fool!");
             break;
     }
 
     console.log(tellYou);
-    return tellYou;
+
+    //pintado
+  return  pintado.innerHTML = tellYou;
+    
+    
 }
 myCalcul();
 }
+
+/**DOCUMENTACION */
+//https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
