@@ -1,4 +1,5 @@
 //and all hell goes loose
+"use strict"
 
 //get them at html
 let inicio = document.getElementById('trigger');
@@ -8,6 +9,7 @@ inicio.addEventListener('click', allHellLoose);
 
 
 function allHellLoose() {
+
 //consola hello world
 console.log('Hello Mundo');
 
@@ -49,7 +51,9 @@ function notaCorte() {
         
     } while (nota < 0 && nota > 10);
 
-    (nota < 5) ? info = alert('Ha suspendido el examen, lo sentimos.') : info = alert('Enhorabuena, ha aprobado el examen.');
+    //condicionales
+    (nota < 5) ? info = alert('Ha suspendido el examen, lo sentimos.') : 
+    (nota == 5) ? info = alert('Justito, justito...') : info = alert('Enhorabuena, ha aprobado el examen');
     
     console.log(info);
     return info;
@@ -66,13 +70,11 @@ function changeWords(str){
 
     //cut through that last space marked before
     sentence = sentence.substring(0, lastOne );
-
     console.log(sentence);
 
     //we add the str
     //made first the string into an arr []
     let changedOne = [sentence + " " + str].join()
-    
     console.log(changedOne);
 
 }
@@ -104,14 +106,13 @@ const myCalcul = (str, num1, num2) => {
     //control2
     (isNaN(num2)) ? num2 = 0 : true;
 
-    str = prompt('Que operación deseas hacer?\n Suma \n Resta \n Multiplicacion \n División')
+    str = prompt('Que operación deseas hacer?\n Suma \n Resta \n Multiplicación \n División')
     //control str
     str = str.toLowerCase();
     //accents out
     str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-
-
+    
     let result = 0;
     let tellYou;
 
